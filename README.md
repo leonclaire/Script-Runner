@@ -2,8 +2,7 @@ The easiest way to run command script.
 
 Attention:
 
-    1. no trojan, no backdoor... 
-    2. all free and shareable.
+    no trojan, no backdoor...
 
 Interface:
 
