@@ -1,0 +1,29 @@
+
+    //run bat
+    test.bat
+
+    //run exe
+    test.exe
+
+    //main loop
+    Loop count=100
+
+        //run cmd
+        copy /y a b
+
+        //10 times s0 -> ms(60s) -> s0
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+        pwrtest.exe /cs /p:60 /delaywrite
+
+        //1 times s0 -> ms(900s) -> s0
+        pwrtest.exe /cs /p:900 /delaywrite
+
+    Loop end
