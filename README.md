@@ -22,6 +22,7 @@ Interface:
     VOID  StopProcess();
     BOOL  HaveProcess();
     DWORD  ExecuteProcess();
+    VOID GoNextStep();    
 
 Sample code:
 
@@ -29,35 +30,31 @@ Sample code:
 
     int main()
     {
-        SetScriptDir("XXX");  //脚本目录
-        SetToolDir("XXX");    //工具目录
-        SetLogPath("XXX");  //日志路径
+        SetScriptDir("XXX");   //脚本目录
+        SetToolDir("XXX");     //工具目录
+        SetLogPath("XXX");     //日志路径
 
-        SetRegPath("XXX");  //注册表路径
+        SetRegPath("XXX");     //注册表路径
 
-        ClearScript();  //卸载脚本
-        if (!LoadScript(g_path, &g_text))  //加载脚本
+        ClearScript();         //卸载脚本
+        if (!LoadScript("XXX", &text)) //加载脚本
         {
-            return FALSE;
+            return 1;
         }
 
-        ShowScript();  //打印脚本
-        CloseScript(&g_text);  //关闭脚本
+        ShowScript();          //打印脚本
+        CloseScript(&text);    //关闭脚本
 
-        ClearProcess(g_node);  //删除进度
-        LoadProcess(g_node);  //加载进度
-        SaveProcess(g_node);  //保存进度
-        StopProcess();  //停止流程
+        ClearProcess("XXX");   //删除进度
+        LoadProcess("XXX");    //加载进度
+        SaveProcess("XXX");    //保存进度
+        StopProcess();         //停止流程
 
         while (HaveProcess())  //流程没完成
         {
-            if (!g_running)
-            {
-                goto EXIT;
-            }
-
-            GetLinePos(start, end);  //获取当前cmd文本位置
-            status = ExecuteProcess();  //继续流程
+            GetLinePos(start, end);     //获取当前cmd在text位置
+            status = ExecuteProcess();  //执行流程
+            GoNextStep();            
         }
 
         return 0;
